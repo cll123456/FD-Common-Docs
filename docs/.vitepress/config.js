@@ -30,11 +30,11 @@ module.exports = {
     },
     themeConfig: {
         // 顶部导航
-        nav: [{ text: 'vue3源码分析', link: '/vue3-analysis/', activeMatch: '/vue3-analysis/' }],
-        socialLinks: [{ icon: 'github', link: 'https://github.com/cll123456/common-study' }],
+        // nav: [{ text: 'vue3源码分析', link: '/vue3-analysis/', activeMatch: '/vue3-analysis/' }],
+        socialLinks: [{ icon: 'github', link: 'https://github.com/cll123456/FD-Common-Docs' }],
         // 编辑链接
         editLink: {
-            pattern: 'https://github.com/cll123456/common-study/edit/master/docs/docs/:path',
+            pattern: 'https://github.com/cll123456/FD-Common-Docs/docs/:path',
             text: '前往GitHub编辑此页'
         },
         // 顶部导航
