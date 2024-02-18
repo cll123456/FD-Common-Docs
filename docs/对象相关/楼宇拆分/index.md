@@ -1,7 +1,11 @@
+> 楼宇拆分是非常常见的功能，通常把楼爆炸弹开，抽出其中某一层来查看里面的细节`（useHouse）`
+
 ## 效果
 
+![alt text](1.gif)
 
 ## 源码
+
 ```ts
 const layerTreeObject: any = {}
 
@@ -164,8 +168,104 @@ export async function useHouse(location: number[], houseName: string[], height: 
         isOpen
     }
 }
-
 ```
 
 ## 使用方式
 
+```ts
+<template>
+    <div class="open-or-close">
+        <div class="title" @click="handlerOpen">
+            <span>{{ title }}</span>
+        </div>
+        <transition name="custom-classes-transition" enter-active-class="animate__animated animate__zoomIn" leave-active-class="animate__animated animate__zoomOut">
+            <div class="floors" v-if="isOpen">
+                <div class="floor" @click="handlerFloorClick(item)" v-for="item in 7">{{ item }}</div>
+            </div>
+        </transition>
+    </div>
+</template>
+
+<script lang="ts" setup>
+import { computed, ref, onBeforeUnmount } from 'vue'
+
+const isOpen = ref(false)
+
+const title = computed(() => (isOpen.value ? '收起' : '展开'))
+
+let house: any = null
+const handlerOpen =async () => {
+     house = await useHouse(['楼宇名称1','楼宇名称2','楼宇名称3'], [0,0,0])
+    if(!isOpen.value && house){
+        house.open()
+    }else{
+        house.close()
+    }
+}
+
+const handlerFloorClick = async (item: number) => {
+    if(house){
+        house.moveHouse(item)
+    }
+}
+
+onBeforeUnmount(() => {
+    if(house && isOpen.value){
+        house.close()
+    }
+
+})
+</script>
+
+<style lang="scss" scoped>
+.open-or-close {
+    position: fixed;
+    @include Top(50);
+    @include Right(500);
+    z-index: 110;
+    .title {
+        position: relative;
+        @include Width(150);
+        text-align: center;
+        @include hHeight(100);
+        @include MarginBottom(10);
+        background: url('./building_tag_bg.png') no-repeat center;
+        background-size: contain;
+        span {
+            position: absolute;
+            @include Top(45);
+            @include Left(80);
+        }
+    }
+    .floors {
+        position: absolute;
+        @include Top(90);
+        @include Left(30);
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-around;
+        align-items: center;
+        @include Width(100);
+        @include hHeight(250);
+        background: linear-gradient(rgba(53, 75, 91, 0.8), rgba(53, 75, 91, 0.6), rgba(53, 75, 91, 0.3));
+
+        .floor {
+            @include Padding(5, 0, 5, 0);
+            text-align: center;
+            width: 100%;
+            border: 1px solid #fff;
+            &:hover {
+                background: rgba(95, 193, 243, 1);
+            }
+        }
+    }
+}
+</style>
+
+```
+
+## 用到的资源
+
+### ui 图片
+
+![uilding_tag_bg](building_tag_bg.png)

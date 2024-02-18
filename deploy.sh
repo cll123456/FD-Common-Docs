@@ -14,7 +14,7 @@ cd docs/.vitepress/dist/
 
 git init
 git add -A
-git commit -m 'deploy: 自动部署'
+git commit -m 'deploy:自动部署'
 
 # 如果发布到 https://<USERNAME>.github.io
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
