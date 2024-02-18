@@ -1,0 +1,20 @@
+[
+  {
+    "text": "首页",
+    "link": "index.md"
+  },
+  {
+    "text": "对象相关",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "楼宇拆分",
+        "link": "对象相关/楼宇拆分/index.md"
+      },
+      {
+        "text": "楼宇拆分 - 副本",
+        "link": "对象相关/楼宇拆分 - 副本/index.md"
+      }
+    ]
+  }
+]
