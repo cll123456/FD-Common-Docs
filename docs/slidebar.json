@@ -16,5 +16,29 @@
         "link": "对象相关/楼宇拆分 - 副本/index.md"
       }
     ]
+  },
+  {
+    "text": "热力图相关",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "热力渐变",
+        "link": "热力图相关/热力渐变/index.md"
+      }
+    ]
+  },
+  {
+    "text": "线相关",
+    "collapsed": true,
+    "items": [
+      {
+        "text": "地铁流动线",
+        "link": "线相关/地铁流动线/index.md"
+      },
+      {
+        "text": "垂直流动线",
+        "link": "线相关/垂直流动线/index.md"
+      }
+    ]
   }
 ]
